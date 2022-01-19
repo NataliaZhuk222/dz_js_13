@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* table, tr, td{
+            border: 1px solid black;
+            
+        }
+        tr, td{
+            padding: 20px;
+
+        } */
+    </style>
+</head>
+<body>
+   
+    <script>
+        function createTable(str,stb){
+            let s = 0;
+            let table = document.createElement('table');
+            document.body.append(table);
+            table.setAttribute('bgcolor','#E6E6FA');
+            table.style.cssText = 'border: 2px solid black; width: 500px; height: 200px';
+            for(i=0; i<str; i++){
+               let tr =  document.createElement('tr');
+               table.append(tr);
+               tr.style.cssText = 'border: 2px solid black; padding: 5px';
+               for(j=0; j<stb; j++){
+                   let td = document.createElement('td')
+                   tr.append(td);
+                   s++;
+                   td.innerHTML = `Ячейка ${s}`;
+                   td.style.cssText = 'border: 2px solid black; padding: 5px';
+               }
+            }
+        }
+        createTable(4,5);
+        function removeText(){
+            let tds = document.querySelectorAll('td');
+            tds.forEach((e) => e.innerHTML = '');
+        }
+        function removeStb(){
+            let trs = document.querySelectorAll('tr');
+            trs.forEach((e)=> e.innerHTML = '');
+        }
+        function removeTable(){
+            document.querySelector('table').remove();
+        }
+        setTimeout(removeText, 2000);
+        setTimeout(removeStb, 4000);
+        setTimeout(removeTable, 6000);
+
+        
+
+
+    </script>
+    
+</body>
+</html>
